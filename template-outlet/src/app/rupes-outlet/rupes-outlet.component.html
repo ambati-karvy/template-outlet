@@ -1,0 +1,22 @@
+<p>NgTemplateOutlet Eample</p>
+
+<div *ngFor="let item of items; let i = index">
+    <ng-container *ngTemplateOutlet="useCase; context:{data:item.name ,label: 'Name'}"></ng-container>
+
+</div>
+
+
+
+<ng-template #useCase let-data="data" let-label="label" let-isDate="isDate" let-dollar="isCuurency">
+    <div>
+        <label [for]="label">{{label}}:</label>
+        <ng-container *ngIf="data; else noData">
+            <span *ngIf="isDate" class="data-cell">{{ data | date}}</span>
+            <span *ngIf="dollar" class="data-cell">{{ data | currency}}</span>
+            <span *ngIf="!isDate && !dollar" class="data-cell"> {{data}}</span>
+        </ng-container>
+        <ng-template #noData>
+            <span class="no-data">N/A</span>
+        </ng-template>
+    </div>
+</ng-template>
