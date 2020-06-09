@@ -1,0 +1,21 @@
+<div>
+  <div>
+    <app-client-1></app-client-1>
+  </div>
+
+  <div>
+    <app-client-2></app-client-2>
+  </div>
+</div>
+<app-parent-server></app-parent-server>
+<app-button-parent>
+
+  <p #hello>hello raghu</p>
+</app-button-parent>
+<h1>------------------------------------------</h1>
+<app-joke-list>
+  <app-joke [joke]="joke">
+    <span class="setup">{{ joke.setup }}?</span>
+    <h1 class="punchline">{{ joke.punchline }}</h1>
+  </app-joke>
+</app-joke-list>
